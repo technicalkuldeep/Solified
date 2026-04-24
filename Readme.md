@@ -140,3 +140,10 @@ Final score is normalized between **0–100**.
 ### Extension
 - Chrome Extension (Manifest v3)  
 - Content Scripts + Background Scripts  
+
+## 4. Load Chrome Extension
+- Open chrome://extensions
+- Enable Developer Mode
+- Click Load unpacked
+- Select /extension folder
+
