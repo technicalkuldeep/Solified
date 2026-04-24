@@ -1,0 +1,185 @@
+/* Solified — Injected UI styles */
+
+/* Badge */
+.solified-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+  margin: 0 4px !important;
+  padding: 1px 6px !important;
+  font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace !important;
+  font-size: 10px !important;
+  font-weight: 600 !important;
+  line-height: 1.4 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+  color: #0A0A0C !important;
+  background: var(--solified-color, #FF3333) !important;
+  border: 1px solid var(--solified-color, #FF3333) !important;
+  border-radius: 0 !important;
+  vertical-align: middle !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+  user-select: none !important;
+  white-space: nowrap !important;
+  box-shadow: none !important;
+  transition: transform 0.12s ease-out !important;
+}
+.solified-badge:hover { transform: translateY(-1px) !important; filter: brightness(1.05) !important; }
+.solified-badge .solified-icon { font-weight: 900 !important; }
+.solified-badge .solified-score,
+.solified-badge .solified-label { color: #0A0A0C !important; }
+
+/* Floating Banner */
+.solified-banner {
+  position: fixed !important;
+  top: 20px !important;
+  right: 20px !important;
+  z-index: 2147483646 !important;
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 12px !important;
+  max-width: 400px !important;
+  padding: 14px 16px !important;
+  font-family: "IBM Plex Mono", ui-monospace, monospace !important;
+  background: #0A0A0C !important;
+  color: #fff !important;
+  border: 1px solid rgba(255,255,255,0.15) !important;
+  border-left-width: 4px !important;
+  border-radius: 0 !important;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.5) !important;
+  animation: solified-slide-in 0.28s ease-out !important;
+}
+.solified-banner-red { border-left-color: #FF3333 !important; }
+.solified-banner-yellow { border-left-color: #FFD600 !important; }
+.solified-banner-green { border-left-color: #00FF66 !important; }
+.solified-banner-icon { font-size: 20px !important; line-height: 1 !important; }
+.solified-banner-body { flex: 1 !important; min-width: 0 !important; }
+.solified-banner-title {
+  font-size: 12px !important; font-weight: 700 !important;
+  text-transform: uppercase !important; letter-spacing: 0.1em !important;
+}
+.solified-banner-red .solified-banner-title { color: #FF3333 !important; }
+.solified-banner-yellow .solified-banner-title { color: #FFD600 !important; }
+.solified-banner-detail {
+  margin-top: 5px !important; font-size: 11px !important;
+  color: rgba(255,255,255,0.7) !important; line-height: 1.5 !important;
+  word-break: break-all !important;
+}
+.solified-banner-cta {
+  background: #fff !important; color: #0A0A0C !important;
+  border: none !important; padding: 6px 12px !important;
+  font-family: inherit !important; font-size: 10px !important;
+  font-weight: 700 !important; letter-spacing: 0.12em !important;
+  text-transform: uppercase !important; cursor: pointer !important;
+  align-self: flex-start !important;
+}
+.solified-banner-close {
+  background: transparent !important; color: rgba(255,255,255,0.5) !important;
+  border: none !important; cursor: pointer !important;
+  font-size: 14px !important; line-height: 1 !important;
+  padding: 0 4px !important; align-self: flex-start !important;
+}
+.solified-banner-close:hover { color: #fff !important; }
+
+@keyframes solified-slide-in {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Pre-transaction modal */
+.solified-modal-overlay {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 2147483647 !important;
+  background: rgba(0,0,0,0.7) !important;
+  backdrop-filter: blur(4px) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 20px !important;
+  animation: solified-fade-in 0.2s ease-out !important;
+}
+.solified-modal {
+  background: #0A0A0C !important;
+  color: #fff !important;
+  border: 1px solid #FF3333 !important;
+  border-left-width: 4px !important;
+  border-radius: 0 !important;
+  padding: 28px !important;
+  width: 100% !important;
+  max-width: 460px !important;
+  font-family: "IBM Plex Mono", ui-monospace, monospace !important;
+  box-shadow: 0 20px 60px rgba(255,51,51,0.3) !important;
+}
+.solified-modal-header {
+  display: flex !important; align-items: center !important; gap: 8px !important;
+  font-size: 10px !important; font-weight: 700 !important;
+  letter-spacing: 0.25em !important; color: #FF3333 !important;
+}
+.solified-modal-dot {
+  width: 8px !important; height: 8px !important;
+  background: #FF3333 !important;
+  animation: solified-pulse 1s infinite !important;
+}
+.solified-modal-title {
+  margin-top: 16px !important;
+  font-size: 24px !important; font-weight: 900 !important;
+  letter-spacing: -0.02em !important;
+  color: #fff !important;
+}
+.solified-modal-score {
+  margin-top: 10px !important;
+  font-size: 12px !important; color: rgba(255,255,255,0.6) !important;
+}
+.solified-modal-body {
+  margin-top: 16px !important;
+  font-size: 13px !important; color: rgba(255,255,255,0.8) !important;
+  line-height: 1.6 !important;
+  font-family: "IBM Plex Sans", sans-serif !important;
+}
+.solified-modal-addr {
+  margin-top: 16px !important;
+  padding: 10px !important;
+  background: rgba(255,255,255,0.04) !important;
+  font-size: 11px !important;
+  color: rgba(255,255,255,0.6) !important;
+  word-break: break-all !important;
+  border-left: 2px solid #FF3333 !important;
+}
+.solified-modal-actions {
+  margin-top: 20px !important;
+  display: flex !important; gap: 8px !important;
+  justify-content: flex-end !important;
+}
+.solified-modal-actions button {
+  padding: 10px 16px !important;
+  font-family: inherit !important;
+  font-size: 11px !important; font-weight: 700 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  border-radius: 0 !important;
+  cursor: pointer !important;
+  transition: opacity 0.15s !important;
+}
+.solified-modal-cancel {
+  background: transparent !important;
+  color: #fff !important;
+  border: 1px solid rgba(255,255,255,0.2) !important;
+}
+.solified-modal-cancel:hover { border-color: #fff !important; }
+.solified-modal-report {
+  background: #FF3333 !important;
+  color: #0A0A0C !important;
+  border: 1px solid #FF3333 !important;
+}
+.solified-modal-report:hover { opacity: 0.9 !important; }
+
+@keyframes solified-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+@keyframes solified-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

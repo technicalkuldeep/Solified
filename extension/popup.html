@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Solified</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <div class="shield"></div>
+        <div>
+          <div class="brand">SOLIFIED</div>
+          <div class="sub">VERIFY BEFORE YOU TRUST</div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="label">Solana address</div>
+      <input
+        id="addr"
+        type="text"
+        placeholder="Paste wallet or token mint…"
+        autocomplete="off"
+        spellcheck="false"
+      />
+      <button id="scan">SOLIFY NOW →</button>
+
+      <div id="result" class="result hidden"></div>
+      <div id="error" class="error hidden"></div>
+
+      <div class="recent-head">
+        <span>Recent Solifies</span>
+        <button id="clear-history" class="linky" type="button">Clear</button>
+      </div>
+      <div id="history" class="history"></div>
+
+      <a id="openapp" href="#" target="_blank">Open full report ↗</a>
+    </main>
+  </body>
+  <script src="popup.js"></script>
+</html>
