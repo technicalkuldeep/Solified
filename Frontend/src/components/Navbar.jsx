@@ -70,7 +70,7 @@ export const Navbar = () => {
           onClick={() => navigate("/")}
           className="border border-white/20 bg-white px-5 py-2.5 font-mono text-xs uppercase tracking-wider text-[#0A0A0C] hover:bg-white/90 transition-colors"
         >
-          New Solify →
+          SOLIFY NOW →
         </button>
       </div>
     </header>
