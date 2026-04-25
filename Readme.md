@@ -4,9 +4,9 @@ Solified is a real-time security and verification layer for Solana that helps us
 
 ---
 
-## 🚨 Problem
+## 🚨 Problem 
 
-On Solana, transactions are irreversible.  
+On Solana, transactions are irreversible .  
 Users often interact with wallets and tokens blindly, leading to:
 
 - Clipboard attacks (address replacement)
