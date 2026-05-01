@@ -1,76 +1,62 @@
 import { Link, useNavigate } from "react-router-dom";
-import { ShieldCheck } from "@phosphor-icons/react";
 
 export const Navbar = () => {
   const navigate = useNavigate();
   return (
     <header
       data-testid="app-navbar"
-      className="sticky top-0 z-40 border-b border-white/10 bg-[#0A0A0C]/80 backdrop-blur-xl"
+      className="sticky top-0 z-40 border-b border-white/[0.06] bg-[#07070A]/85 backdrop-blur-xl"
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-12">
         <Link
           to="/"
           data-testid="nav-home-link"
-          className="flex items-center gap-3 group"
+          className="group flex items-center gap-3"
         >
-          <div className="flex h-9 w-9 items-center justify-center border border-white/20 group-hover:border-white transition-colors">
-            <ShieldCheck size={20} weight="duotone" className="text-white" />
-          </div>
+          <img
+            src="/brand/solified-shield.png"
+            alt="Solified shield"
+            className="h-9 w-9 transition-transform duration-300 group-hover:scale-105"
+            style={{ mixBlendMode: "screen" }}
+            draggable="false"
+          />
           <div className="flex flex-col leading-none">
-            <span className="font-display text-sm font-black tracking-tight">
+            <span className="font-display text-sm font-black tracking-tight brand-gradient-text">
               SOLIFIED
             </span>
-            <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-white/40">
+            <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-white/45">
               verify before you trust
             </span>
           </div>
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
-          <a
-            href="#how-it-works"
-            className="font-mono text-xs uppercase tracking-wider text-white/60 hover:text-white transition-colors"
-            data-testid="nav-how-link"
-          >
-            How it works
-          </a>
-          <a
-            href="#protection"
-            className="font-mono text-xs uppercase tracking-wider text-white/60 hover:text-white transition-colors"
-            data-testid="nav-protection-link"
-          >
-            Protection
-          </a>
-          <a
-            href="#features"
-            className="font-mono text-xs uppercase tracking-wider text-white/60 hover:text-white transition-colors"
-            data-testid="nav-features-link"
-          >
-            Features
-          </a>
-          <a
-            href="#extension"
-            className="font-mono text-xs uppercase tracking-wider text-white/60 hover:text-white transition-colors"
-            data-testid="nav-extension-link"
-          >
-            Extension
-          </a>
-          <a
-            href="#recent"
-            className="font-mono text-xs uppercase tracking-wider text-white/60 hover:text-white transition-colors"
-            data-testid="nav-recent-link"
-          >
-            Recent
-          </a>
+          {[
+            ["#how-it-works", "How", "nav-how-link"],
+            ["#protection", "Protection", "nav-protection-link"],
+            ["#firewall", "Firewall", "nav-firewall-link"],
+            ["#features", "Features", "nav-features-link"],
+            ["#extension", "Extension", "nav-extension-link"],
+            ["#recent", "Recent", "nav-recent-link"],
+          ].map(([href, label, tid]) => (
+            <a
+              key={tid}
+              href={href}
+              data-testid={tid}
+              className="relative font-mono text-xs uppercase tracking-[0.18em] text-white/55 transition-colors hover:text-white"
+            >
+              {label}
+            </a>
+          ))}
         </nav>
 
         <button
           data-testid="nav-scan-button"
           onClick={() => navigate("/")}
-          className="border border-white/20 bg-white px-5 py-2.5 font-mono text-xs uppercase tracking-wider text-[#0A0A0C] hover:bg-white/90 transition-colors"
+          className="group relative inline-flex items-center gap-2 overflow-hidden bg-white px-5 py-2.5 font-mono text-xs uppercase tracking-[0.2em] text-[#07070A] transition-transform duration-300 hover:scale-[1.02]"
         >
-          SOLIFY NOW →
+          <span className="relative z-10">New Solify</span>
+          <span className="relative z-10 transition-transform duration-300 group-hover:translate-x-0.5">→</span>
         </button>
       </div>
     </header>

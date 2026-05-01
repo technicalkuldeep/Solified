@@ -35,13 +35,13 @@ export const WalletInput = ({ size = "lg", initialValue = "" }) => {
       data-testid="wallet-input-form"
     >
       <div
-        className={`flex flex-col gap-0 border border-white/20 bg-[#121216] transition-colors focus-within:border-white sm:flex-row ${
-          error ? "border-[#FF3333]/70" : ""
+        className={`flex flex-col gap-0 border bg-[#0E0E13] transition-all duration-300 focus-within:border-white/40 focus-within:shadow-[0_0_0_4px_rgba(14,132,255,0.08)] sm:flex-row ${
+          error ? "border-[#FF3B6E]/70" : "border-white/15"
         }`}
       >
-        <div className="flex items-center gap-3 border-b border-white/10 px-5 py-4 sm:border-b-0 sm:border-r sm:px-6">
-          <MagnifyingGlass size={20} weight="bold" className="text-white/50" />
-          <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-white/40">
+        <div className="flex items-center gap-3 border-b border-white/[0.08] px-5 py-4 sm:border-b-0 sm:border-r sm:px-6">
+          <MagnifyingGlass size={20} weight="bold" className="text-white/55" />
+          <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-white/45">
             Solana Address
           </span>
         </div>
@@ -67,10 +67,11 @@ export const WalletInput = ({ size = "lg", initialValue = "" }) => {
           type="submit"
           data-testid="wallet-input-submit"
           disabled={loading}
-          className={`group flex items-center justify-center gap-2 bg-white px-8 py-4 font-mono text-xs uppercase tracking-[0.2em] text-[#0A0A0C] hover:bg-white/90 disabled:opacity-50 transition-colors ${
+          className={`group relative flex items-center justify-center gap-2 overflow-hidden bg-white px-8 py-4 font-mono text-xs uppercase tracking-[0.22em] text-[#07070A] transition-all duration-300 hover:scale-[1.01] disabled:opacity-50 ${
             big ? "sm:py-5" : ""
           }`}
         >
+          <span className="absolute inset-0 -z-10 opacity-0 brand-gradient-bg transition-opacity duration-500 group-hover:opacity-100" />
           {loading ? "Solifying…" : "Solify Now"}
           <ArrowRight
             size={16}

@@ -21,6 +21,9 @@ import TokenInfo from "@/components/TokenInfo";
 import WarningBanner from "@/components/WarningBanner";
 import TransactionVolumeChart from "@/components/TransactionVolumeChart";
 import LiquidityPanel from "@/components/LiquidityPanel";
+import WalletTimelineChart from "@/components/WalletTimelineChart";
+import NetworkRiskPanel from "@/components/NetworkRiskPanel";
+import RiskExplanationPanel from "@/components/RiskExplanationPanel";
 
 import { analyzeAddress } from "@/lib/api";
 import { fmtTime, shortAddr } from "@/lib/format";
@@ -208,13 +211,19 @@ export default function Results() {
 
             {/* Breakdown */}
             <section data-testid="breakdown-section">
-              <SectionHeader
-                eyebrow="Why this score"
-                title="Risk breakdown"
-                sub="Every deduction and addition is accounted for."
+              <RiskExplanationPanel
+                reasons={result.reasons}
+                score={result.score}
+                riskLevel={result.riskLevel}
               />
-              <RiskBreakdownList reasons={result.reasons} />
             </section>
+
+            {/* Network risk panel — wallets only */}
+            {result.type === "wallet" && result.insights?.networkRisk && (
+              <section data-testid="network-section">
+                <NetworkRiskPanel networkRisk={result.insights.networkRisk} />
+              </section>
+            )}
 
             {/* Insights (wallet) or Token info */}
             {result.type === "wallet" ? (
@@ -225,8 +234,9 @@ export default function Results() {
                   sub="Derived from the last 100 signatures."
                 />
                 <TransactionInsights insights={result.insights} />
-                <div className="mt-6">
+                <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-2">
                   <TransactionVolumeChart timeline={result.insights?.txTimeline || []} />
+                  <WalletTimelineChart address={result.address} />
                 </div>
               </section>
             ) : (

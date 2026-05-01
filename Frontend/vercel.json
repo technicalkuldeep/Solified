@@ -1,0 +1,15 @@
+{
+  "routes": [
+    {
+      "src": "/extension/(.*\\.zip)",
+      "dest": "/extension/$1"
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
+}
