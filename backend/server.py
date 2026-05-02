@@ -235,8 +235,13 @@ async def root():
     }
 
 
-@api_router.get("/health")
-async def health():
+from fastapi import Request, Response
+
+@api_router.api_route("/health", methods=["GET", "HEAD"])
+async def health(request: Request):
+    if request.method == "HEAD":
+        return Response(status_code=200)
+
     rpc_ok = bool(os.environ.get("SOLANA_RPC_URL"))
     return {
         "service": "Solified",
@@ -244,7 +249,6 @@ async def health():
         "rpcConfigured": rpc_ok,
         "tagline": "Solified — Verify Before You Trust",
     }
-
 
 @api_router.get("/whitelist")
 async def whitelist():
