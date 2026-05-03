@@ -1,149 +1,169 @@
-# 🛡️ Solified — Verify Before You Trust
+# 🛡️ Solified — Pre-Signing Firewall for Solana
 
-Solified is a real-time security and verification layer for Solana that helps users detect risky wallets and tokens before interacting. It combines a powerful web app with a Chrome extension to actively protect users from scams, phishing attacks, and irreversible mistakes.
+**Know before you sign.**
 
----
-
-## 🚨 Problem 
-
-On Solana, transactions are irreversible .  
-Users often interact with wallets and tokens blindly, leading to:
-
-- Clipboard attacks (address replacement)
-- Fake or lookalike wallet addresses
-- Malicious wallets linked to scams
-- Fake or low-liquidity tokens (rug pulls)
-- Human errors during fast transactions
-
-There is no real-time safety layer that warns users before they make a mistake.
+Solified is a security layer for Solana that analyzes transactions *before* they are signed. It decodes instructions, simulates outcomes, and detects hidden risks—helping users, bots, and developers avoid costly mistakes.
 
 ---
 
-## 💡 Solution
+## 🚨 The Problem
 
-Solified introduces a two-layer security system:
+On Solana, transactions are fast and irreversible.
 
-### 🧠 1. Intelligence Layer
-- Analyzes wallets and tokens using on-chain data  
-- Generates a Solified Score (0–100)  
-- Provides risk insights and explanations  
+Users often think they are:
 
-### ⚡ 2. Protection Layer (Chrome Extension)
-- Detects wallet addresses on any webpage  
-- Shows real-time risk badges  
-- Prevents clipboard attacks  
-- Warns users before risky transactions  
-- Flags suspicious or similar-looking addresses  
+* swapping a token
+* minting an NFT
+* interacting with a trusted app
 
----
+But in reality, transactions can include:
 
-## ✨ Features
+* unlimited token approvals
+* hidden SOL transfers
+* interactions with unknown programs
 
-### 🔍 Wallet & Token Analysis
-- Risk scoring engine (0–100)  
-- Risk classification:
-  - 🟢 Verified  
-  - 🟡 Suspicious  
-  - 🔴 High Risk  
-- Transaction history insights  
-- Token liquidity and volume analysis  
+Once signed, there is no undo.
 
 ---
 
-### 🧨 Chrome Extension (Core Feature)
-- Real-time wallet detection on webpages  
-- Clipboard attack detection (copy–paste mismatch)  
-- Address similarity warnings (phishing prevention)  
-- Pre-transaction risk alerts  
-- Floating warning banners  
-- Recent scan history  
+## 💡 The Solution
+
+Solified acts as a **pre-signing firewall**.
+
+Before a transaction is executed, Solified:
+
+* decodes what the transaction actually does
+* simulates the outcome
+* compares intent vs reality
+* returns a clear verdict
+
+👉 **ALLOW · WARN · BLOCK**
 
 ---
 
-### 🧠 Smart Detection
-- Interaction with flagged wallets  
-- Suspicious transaction patterns  
-- Low liquidity tokens  
-- Known trusted addresses (whitelisting)  
+## ⚙️ Core Features
+
+### 🔥 Transaction Firewall (Primary)
+
+* Pre-signing transaction analysis
+* Instruction decoding & simulation
+* Intent vs Reality detection
+* Hidden approval & transfer detection
+* Real-time verdict system (Allow / Warn / Block)
 
 ---
 
-### 🟢 Whitelisting System
+### 🧠 Supporting Intelligence
 
-Recognizes trusted entities like:
-- USDC  
-- Major protocols (Jupiter, Raydium, etc.)  
-
-Automatically marks them as **Verified**.
-
----
-
-## 🏗️ Architecture
-
-User Browser
-↓
-Solified Chrome Extension
-↓
-Backend API (FastAPI)
-↓
-Risk Engine (Scoring Logic)
-↓
-Data Sources:
-
-Solana RPC (Alchemy)
-DexScreener API
-↓
-Database (Scan History)
+* Wallet risk scoring with detailed insights
+* Token risk analysis (liquidity, holder patterns, suspicious signals)
+* Graph-based scam detection (multi-hop wallet analysis)
+* Network risk insights (counterparties, scam proximity, clusters)
+* Wallet behavior timeline (risk evolution over time)
 
 ---
 
-## ⚙️ How It Works
+### 🛡️ Scam Protection Layer
 
-1. User pastes or encounters a wallet/token  
-2. Extension detects address in real-time  
-3. Backend fetches on-chain + market data  
-4. Risk engine calculates score using heuristics  
-5. Results returned instantly  
-6. Extension displays warnings or badges  
+* Clipboard attack detection (prevents address replacement)
+* Lookalike address detection (phishing protection)
+* Fake dApp detection (malicious site warnings)
 
 ---
 
-## 🧮 Risk Scoring Logic
+### 🌐 Chrome Extension
 
-- Interacts with scam wallets → −40  
-- Rug-pull pattern → −50  
-- New wallet (<7 days) → −20  
-- Suspicious transaction patterns → −15  
-- Low liquidity token → −10  
-- Trusted protocol interaction → +10  
-
-Final score is normalized between **0–100**.
+* Real-time protection across websites
+* Detects wallet addresses on any page
+* Injects risk indicators inline
+* One-click deep analysis
 
 ---
 
-## 🛠 Tech Stack
+## 🧱 Tech Stack
 
-### Frontend
-- React (Next.js)  
-- Tailwind CSS  
-- Framer Motion  
-- Recharts  
+**Frontend**
 
-### Backend
-- FastAPI (Python)  
-- MongoDB  
+* Next.js (React)
+* Tailwind CSS
+* Framer Motion (animations)
 
-### Blockchain & Data
-- Solana RPC (Alchemy)  
-- DexScreener API  
+**Backend**
 
-### Extension
-- Chrome Extension (Manifest v3)  
-- Content Scripts + Background Scripts  
+* FastAPI (Python)
 
-## 4. Load Chrome Extension
-- Open chrome://extensions
-- Enable Developer Mode
-- Click Load unpacked
-- Select /extension folder
+**Blockchain & Data**
 
+* Solana RPC (via Alchemy)
+* DexScreener API
+
+**Database**
+
+* MongoDB
+
+**Infrastructure**
+
+* Vercel (frontend)
+* Render (backend)
+
+---
+
+## 🧠 How It Works
+
+### 🔐 Mode 1 — Transaction Protection
+
+1. User initiates a transaction
+2. Solified intercepts before signing
+3. Decodes + simulates instructions
+4. Compares intent vs actual behavior
+5. Returns verdict → **Allow / Warn / Block**
+
+---
+
+### 🔍 Mode 2 — Wallet & Token Analysis
+
+1. User inputs wallet or token
+2. Solified analyzes risk signals
+3. Displays insights, score, and network data
+
+---
+
+## 🎯 Who It’s For
+
+* Solana users
+* Traders & degens
+* Bot & agent builders
+* Developers & dApps
+* Anyone interacting with on-chain transactions
+
+---
+
+## 🚀 Vision
+
+Solified is not just a scanner.
+
+It’s a **decision engine before execution**—
+a security layer for the future of autonomous, high-speed on-chain interactions.
+
+---
+
+## 🧪 Status
+
+* ✅ Core features built
+* ✅ Extension working
+* 🚧 Continuous improvements & iterations
+
+---
+
+## 📢 Tagline
+
+> **Verify before you trust.**
+> **Know before you sign.**
+
+---
+
+## 🔗 Coming Soon
+
+A safer way to interact with Solana—without guessing what you’re signing.
+
+---
