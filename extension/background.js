@@ -1,6 +1,6 @@
 // Solified background service worker
 const API_BASE = "https://solified.onrender.com/api";
-const WEB_APP = "hhttps://www.solified.app";
+const WEB_APP = "https://www.solified.app";
 const CACHE_TTL_MS = 5 * 60 * 1000;
 const CACHE = new Map();
 const MAX_HISTORY = 25;
