@@ -43,6 +43,16 @@ export const Navbar = () => {
               key={tid}
               href={href}
               data-testid={tid}
+              onClick={(e) => {
+                const id = href.replace(/^#/, "");
+                const el = document.getElementById(id);
+                if (el) {
+                  e.preventDefault();
+                  el.scrollIntoView({ behavior: "smooth", block: "start" });
+                  // Keep URL clean so reload always starts at the top
+                  window.history.replaceState(null, "", window.location.pathname);
+                }
+              }}
               className="relative font-mono text-xs uppercase tracking-[0.18em] text-white/55 transition-colors hover:text-white"
             >
               {label}
