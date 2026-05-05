@@ -1,8 +1,10 @@
-const API_BASE = "/api";
-const WEB_APP = "";
+const API_BASE = "https://solified.onrender.com/api";
+const WEB_APP = "https://www.solified.app";
 
 const $addr = document.getElementById("addr");
 const $btn = document.getElementById("scan");
+const $btnLabel = $btn.querySelector("span:first-child");
+const $btnArrow = $btn.querySelector(".arrow");
 const $result = document.getElementById("result");
 const $error = document.getElementById("error");
 const $open = document.getElementById("openapp");
@@ -78,7 +80,8 @@ async function scan() {
   if (!v) return showError("Enter a Solana address");
   if (!/^[1-9A-HJ-NP-Za-km-z]{32,44}$/.test(v)) return showError("Invalid Solana address format");
   $btn.disabled = true;
-  $btn.textContent = "SOLIFYING…";
+  $btnLabel.textContent = "SOLIFYING";
+  $btnArrow.textContent = "…";
   $error.classList.add("hidden");
   try {
     const resp = await fetch(`${API_BASE}/analyze`, {
@@ -99,7 +102,8 @@ async function scan() {
     showError(e.message || "Solify failed");
   } finally {
     $btn.disabled = false;
-    $btn.textContent = "SOLIFY NOW →";
+    $btnLabel.textContent = "SOLIFY NOW";
+    $btnArrow.textContent = "→";
   }
 }
 

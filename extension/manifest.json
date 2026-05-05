@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "Solified — Verify Before You Trust",
-  "version": "1.1.0",
-  "description": "Solified — a real-time verification layer for Solana. Detects wallets & tokens on every page, flags scams, prevents clipboard attacks, and warns before risky transactions.",
+  "version": "1.3.0",
+  "description": "Solified — real-time intelligence layer for Solana. Detects scam wallets & tokens, fake dApps, clipboard hijackers, and intercepts every transaction before signing with full Intent vs Reality analysis.",
   "permissions": ["storage", "activeTab", "clipboardRead"],
   "host_permissions": ["<all_urls>"],
   "action": {
@@ -15,9 +15,15 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["content.js"],
+      "js": ["content.js", "dappDetector.js"],
       "css": ["content.css"],
       "run_at": "document_idle"
+    },
+    {
+      "matches": ["<all_urls>"],
+      "js": ["inject.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
     }
   ],
   "icons": {

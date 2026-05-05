@@ -6,25 +6,34 @@
     <link rel="stylesheet" href="popup.css" />
   </head>
   <body>
+    <div class="aurora"></div>
     <header>
       <div class="logo">
-        <div class="shield"></div>
+        <div class="shield-wrap">
+          <img src="popup-shield.png" alt="" class="shield-img" />
+        </div>
         <div>
           <div class="brand">SOLIFIED</div>
           <div class="sub">VERIFY BEFORE YOU TRUST</div>
         </div>
       </div>
+      <div class="status-dot" title="Firewall armed"></div>
     </header>
     <main>
       <div class="label">Solana address</div>
-      <input
-        id="addr"
-        type="text"
-        placeholder="Paste wallet or token mint…"
-        autocomplete="off"
-        spellcheck="false"
-      />
-      <button id="scan">SOLIFY NOW →</button>
+      <div class="input-wrap">
+        <input
+          id="addr"
+          type="text"
+          placeholder="Paste wallet or token mint…"
+          autocomplete="off"
+          spellcheck="false"
+        />
+      </div>
+      <button id="scan">
+        <span>SOLIFY NOW</span>
+        <span class="arrow">→</span>
+      </button>
 
       <div id="result" class="result hidden"></div>
       <div id="error" class="error hidden"></div>
@@ -37,6 +46,11 @@
 
       <a id="openapp" href="#" target="_blank">Open full report ↗</a>
     </main>
+    <footer class="popup-footer">
+      <span class="tag">Pre-signing firewall</span>
+      <span class="dot">·</span>
+      <span>Solana Mainnet</span>
+    </footer>
   </body>
   <script src="popup.js"></script>
 </html>
