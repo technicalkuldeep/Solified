@@ -161,6 +161,37 @@ body {
 .meter-glow-yellow { filter: drop-shadow(0 0 12px rgba(255, 214, 0, 0.45)); }
 .meter-glow-red { filter: drop-shadow(0 0 12px rgba(255, 59, 110, 0.45)); }
 
+/* Hero shield — rotating scan-ring (premium firewall feel) */
+@keyframes shield-scan-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.shield-scan-ring {
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 280deg,
+    rgba(56, 255, 208, 0.35) 320deg,
+    rgba(14, 132, 255, 0.55) 340deg,
+    rgba(181, 54, 255, 0.35) 350deg,
+    transparent 360deg
+  );
+  -webkit-mask: radial-gradient(circle, transparent 62%, #000 63%, #000 64%, transparent 65%);
+          mask: radial-gradient(circle, transparent 62%, #000 63%, #000 64%, transparent 65%);
+  animation: shield-scan-spin 9s linear infinite;
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+/* Subtle vignette for premium hero framing */
+.hero-vignette::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center top, transparent 45%, rgba(7,7,10,0.6) 100%);
+}
+
 @layer base {
   :root {
     --background: 240 10% 4%;
