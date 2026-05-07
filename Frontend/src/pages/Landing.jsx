@@ -171,7 +171,7 @@ export default function Landing() {
               {/* Rotating scan-ring — gives the shield a "live" firewall feel */}
               <div className="shield-scan-ring absolute inset-[-2%] rounded-full" />
               <img
-                src="/brand/solified-shield.png"
+                src="brand\solified-shield.png"
                 alt="Solified shield"
                 className="absolute inset-0 h-full w-full select-none float-slow"
                 style={{
