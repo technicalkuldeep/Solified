@@ -64,10 +64,20 @@ export default function Results() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0A0A0C] text-white" data-testid="results-page">
+    <div className="min-h-screen bg-[#06060A] text-white" data-testid="results-page">
       <Navbar />
 
-      <div className="mx-auto max-w-7xl px-6 py-10 lg:px-12 lg:py-14">
+      {/* Ambient background orbs — Solana palette */}
+      <div className="pointer-events-none fixed inset-0 -z-0 overflow-hidden">
+        <div className="brand-orb brand-orb-purple absolute -left-32 top-32 h-[420px] w-[420px] opacity-25 float-slow" />
+        <div
+          className="brand-orb brand-orb-green absolute right-[-180px] top-[420px] h-[420px] w-[420px] opacity-20 float-slow"
+          style={{ animationDelay: "2s" }}
+        />
+        <div className="grid-bg absolute inset-0 opacity-40" />
+      </div>
+
+      <div className="relative mx-auto max-w-7xl px-6 py-10 lg:px-12 lg:py-14">
         <button
           onClick={() => navigate("/")}
           data-testid="back-button"
@@ -77,7 +87,7 @@ export default function Results() {
         </button>
 
         {/* Address header */}
-        <div className="mt-6 flex flex-col items-start justify-between gap-4 border border-white/10 bg-[#121216] p-6 lg:flex-row lg:items-center">
+        <div className="mt-6 flex flex-col items-start justify-between gap-4 border border-white/10 bg-[#0B0B12]/80 p-6 backdrop-blur lg:flex-row lg:items-center">
           <div className="min-w-0">
             <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-white/40">
               {result?.type === "token" ? "SPL Token Mint" : "Wallet Address"}
@@ -141,19 +151,19 @@ export default function Results() {
             </div>
           </div>
         )}
-
+        
         {/* ERROR */}
         {!loading && error && (
           <div
             data-testid="results-error"
-            className="mt-8 border-l-4 border-[#FF3333] bg-[#FF3333]/10 p-6"
+            className="mt-8 border-l-4 border-[#FF4D6D] bg-[#FF4D6D]/10 p-6"
           >
-            <div className="flex items-center gap-3 font-mono text-sm text-[#FF3333]">
+            <div className="flex items-center gap-3 font-mono text-sm text-[#FF4D6D]">
               <Warning size={20} weight="fill" /> {error}
             </div>
             <button
               onClick={load}
-              className="mt-4 border border-[#FF3333]/50 bg-transparent px-4 py-2 font-mono text-xs uppercase tracking-wider text-[#FF3333] hover:bg-[#FF3333]/10 transition-colors"
+              className="mt-4 border border-[#FF4D6D]/50 bg-transparent px-4 py-2 font-mono text-xs uppercase tracking-wider text-[#FF4D6D] hover:bg-[#FF4D6D]/10 transition-colors"
             >
               Retry
             </button>
@@ -169,8 +179,10 @@ export default function Results() {
             className="mt-8 space-y-8"
           >
             {/* Top overview */}
-            <div className="grid grid-cols-1 gap-0 border border-white/10 lg:grid-cols-[auto_1fr]">
-              <div className="flex items-center justify-center border-b border-white/10 bg-[#121216] p-8 lg:border-b-0 lg:border-r">
+            <div className="relative grid grid-cols-1 gap-0 overflow-hidden border border-white/10 lg:grid-cols-[auto_1fr]">
+              {/* Top brand-gradient hairline */}
+              <div className="absolute inset-x-0 top-0 z-10 h-[2px] bg-[var(--sol-gradient)]" />
+              <div className="flex items-center justify-center border-b border-white/10 bg-[#0B0B12] p-8 lg:border-b-0 lg:border-r">
                 <RiskScoreMeter
                   score={result.score}
                   riskLevel={result.riskLevel}
@@ -178,13 +190,35 @@ export default function Results() {
                   size={280}
                 />
               </div>
-              <div className="flex flex-col justify-between bg-[#121216] p-8 lg:p-10">
+              <div className="flex flex-col justify-between bg-[#0B0B12] p-8 lg:p-10">
                 <div>
-                  <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-white/40">
+                  <div className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.3em] text-white/45">
+                    <span
+                      className="h-1.5 w-1.5 animate-pulse rounded-full"
+                      style={{
+                        background:
+                          result.riskColor === "green"
+                            ? "#14F195"
+                            : result.riskColor === "yellow"
+                            ? "#FFB627"
+                            : "#FF4D6D",
+                      }}
+                    />
                     Verdict
                   </div>
                   <h1 className="mt-2 font-display text-4xl font-black tracking-tighter lg:text-6xl">
-                    {result.riskLevel}
+                    <span
+                      style={{
+                        color:
+                          result.riskColor === "green"
+                            ? "#14F195"
+                            : result.riskColor === "yellow"
+                            ? "#FFB627"
+                            : "#FF4D6D",
+                      }}
+                    >
+                      {result.riskLevel}
+                    </span>
                   </h1>
                   <p className="mt-4 max-w-xl text-white/60 leading-relaxed">
                     {result.type === "token"
@@ -252,7 +286,7 @@ export default function Results() {
             )}
 
             {/* New scan */}
-            <section className="border border-white/10 bg-[#121216] p-6 lg:p-8" data-testid="new-scan-section">
+            <section className="border border-white/10 bg-[#0B0B12]/80 p-6 backdrop-blur lg:p-8" data-testid="new-scan-section">
               <div className="mb-4 font-mono text-[10px] uppercase tracking-[0.3em] text-white/40">
                 Solify another
               </div>

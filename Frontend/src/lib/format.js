@@ -29,11 +29,11 @@ export const fmtTime = (ts) => {
 export const riskHex = (color) => {
   switch (color) {
     case "green":
-      return "#00FF66";
+      return "#14F195";
     case "yellow":
-      return "#FFD600";
+      return "#FFB627";
     case "red":
     default:
-      return "#FF3333";
+      return "#FF4D6D";
   }
 };
