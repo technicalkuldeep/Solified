@@ -161,6 +161,8 @@ body {
 .meter-glow-yellow { filter: drop-shadow(0 0 12px rgba(255, 214, 0, 0.45)); }
 .meter-glow-red { filter: drop-shadow(0 0 12px rgba(255, 59, 110, 0.45)); }
 
+
+
 /* Hero shield — rotating scan-ring (premium firewall feel) */
 @keyframes shield-scan-spin {
   from { transform: rotate(0deg); }
@@ -191,6 +193,46 @@ body {
   pointer-events: none;
   background: radial-gradient(ellipse at center top, transparent 45%, rgba(7,7,10,0.6) 100%);
 }
+
+/* Vertical scan line — for the meter */
+@keyframes meter-scan {
+  0% { top: 8%; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { top: 92%; opacity: 0; }
+}
+.meter-scan-line {
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, currentColor, transparent);
+  animation: meter-scan 2.4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Hero shield — keep firewall feel */
+@keyframes shield-scan-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.shield-scan-ring {
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 280deg,
+    rgba(20, 241, 149, 0.35) 320deg,
+    rgba(153, 69, 255, 0.55) 340deg,
+    rgba(220, 31, 255, 0.35) 350deg,
+    transparent 360deg
+  );
+  -webkit-mask: radial-gradient(circle, transparent 62%, #000 63%, #000 64%, transparent 65%);
+          mask: radial-gradient(circle, transparent 62%, #000 63%, #000 64%, transparent 65%);
+  animation: shield-scan-spin 9s linear infinite;
+  pointer-events: none;
+  opacity: 0.9;
+}
+
 
 @layer base {
   :root {
