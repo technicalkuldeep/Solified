@@ -561,7 +561,12 @@ export default function Landing() {
           >
             <div className="border-b border-white/10 p-8 lg:border-b-0 lg:border-r lg:p-12">
               <div className="inline-flex items-center gap-2 border border-white/20 px-3 py-1.5">
-                <Browsers size={12} weight="bold" />
+                <img
+                  src="https://fonts.gstatic.com/s/i/productlogos/chrome_store/v7/192px.svg"
+                  alt="Chrome Web Store"
+                  className="h-3.5 w-3.5"
+                  draggable="false"
+                />
                 <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-white/70">
                   Chrome Extension · v1.0
                 </span>
@@ -584,7 +589,12 @@ export default function Landing() {
                   data-testid="extension-download-button"
                   className="inline-flex items-center gap-3 bg-white px-6 py-4 font-mono text-xs uppercase tracking-[0.2em] text-[#0A0A0C] transition-colors hover:bg-white/90"
                 >
-                  <DownloadSimple size={16} weight="bold" />
+                  <img
+                    src="https://fonts.gstatic.com/s/i/productlogos/chrome_store/v7/192px.svg"
+                    alt="Chrome Web Store"
+                    className="h-5 w-5"
+                    draggable="false"
+                  />
                   Add to Chrome
                 </a>
                 <a
