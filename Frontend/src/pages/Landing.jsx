@@ -578,21 +578,23 @@ export default function Landing() {
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-3">
                 <a
-                  href="/extension/solified-extension.zip"
-                  download
+                  href="https://chromewebstore.google.com/detail/solified-%E2%80%94-verify-before/keehfjecmfameniahpgbejpfjjckifom"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   data-testid="extension-download-button"
                   className="inline-flex items-center gap-3 bg-white px-6 py-4 font-mono text-xs uppercase tracking-[0.2em] text-[#0A0A0C] transition-colors hover:bg-white/90"
                 >
                   <DownloadSimple size={16} weight="bold" />
-                  Download (.zip)
+                  Add to Chrome
                 </a>
                 <a
-                  href="/extension/solified-extension.zip"
-                  download
+                  href="https://chromewebstore.google.com/detail/solified-%E2%80%94-verify-before/keehfjecmfameniahpgbejpfjjckifom"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   data-testid="extension-install-guide"
                   className="inline-flex items-center gap-2 border border-white/20 bg-transparent px-5 py-4 font-mono text-xs uppercase tracking-[0.2em] text-white/80 transition-colors hover:border-white"
                 >
-                  Install guide →
+                  View on Chrome Web Store →
                 </a>
               </div>
             </div>
@@ -616,9 +618,9 @@ export default function Landing() {
                 ))}
               </ul>
               <div className="mt-8 border border-white/10 bg-[#0A0A0C] p-4 font-mono text-xs text-white/60">
-                <div className="text-white/40">$ chrome://extensions</div>
-                <div className="mt-1">→ Enable Developer mode</div>
-                <div>→ Load unpacked → select unzipped folder</div>
+                <div className="text-white/40">$ chrome web store</div>
+                <div className="mt-1">→ Click “Add to Chrome”</div>
+                <div>→ Confirm → Pin Solified → Done</div>
               </div>
             </div>
           </motion.div>
