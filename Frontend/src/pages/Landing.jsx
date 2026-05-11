@@ -133,6 +133,28 @@ export default function Landing() {
               <WalletInput size="lg" />
             </div>
 
+            <div className="mt-6 flex flex-wrap items-center gap-3">
+              <a
+                href="https://chromewebstore.google.com/detail/solified-%E2%80%94-verify-before/keehfjecmfameniahpgbejpfjjckifom"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-testid="hero-download-solified"
+                className="group inline-flex items-center gap-3 border border-white/20 bg-white/[0.03] px-5 py-3 font-mono text-xs uppercase tracking-[0.2em] text-white transition-colors hover:border-white hover:bg-white hover:text-[#0A0A0C]"
+              >
+                <img
+                  src="https://fonts.gstatic.com/s/i/productlogos/chrome_store/v7/192px.svg"
+                  alt="Chrome Web Store"
+                  className="h-5 w-5"
+                  draggable="false"
+                />
+                Download Solified
+                <span className="transition-transform duration-300 group-hover:translate-x-0.5">→</span>
+              </a>
+              <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-white/40">
+                Free · Chrome Web Store
+              </span>
+            </div>
+
             <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-3">
               <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-white/40">
                 Try a scan:
